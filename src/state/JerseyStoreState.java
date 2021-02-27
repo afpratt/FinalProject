@@ -11,19 +11,15 @@ public class JerseyStoreState {
         soldState = new SoldState(this);
         noPaymentInformationState = new NoPaymentInformationState(this);
         hasPaymentInformationState = new HasPaymentInformationState(this);
+        state = noPaymentInformationState;
     }
 
     public void enterPaymentInformation() {
         state.enterPaymentInformation();
     }
 
-    public void removePaymentInformation() {
-        state.removePaymentInformation();
-    }
-
     public void placeOrder() {
         state.placeOrder();
-        state.shipOrder();
     }
 
     void setState(State state) {

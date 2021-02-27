@@ -11,17 +11,8 @@ public class HasPaymentInformationState implements State {
         System.out.println("Payment information has already been entered.");
     }
 
-    public void removePaymentInformation() {
-        System.out.println("Payment information removed.");
-        jerseyStoreState.setState(jerseyStoreState.getNoPaymentInformationState());
-    }
-
     public void placeOrder() {
-        System.out.println("Your order has been placed.");
+        System.out.println("Thank you for shopping with us!");
         jerseyStoreState.setState(jerseyStoreState.getSoldState());
-    }
-
-    public void shipOrder() {
-        System.out.println("Your order has not been shipped yet.");
     }
 }

@@ -12,15 +12,7 @@ public class NoPaymentInformationState implements State {
         jerseyStoreState.setState(jerseyStoreState.getHasPaymentInformationState());
     }
 
-    public void removePaymentInformation() {
-        System.out.println("No payment information has been entered.");
-    }
-
     public void placeOrder() {
         System.out.println("You must enter your payment information to place this order.");
-    }
-
-    public void shipOrder() {
-        System.out.println("We cannot ship your order until you have paid.");
     }
 }

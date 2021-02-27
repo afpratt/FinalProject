@@ -1,13 +1,26 @@
 package Memento;
 
 public class JerseyCustomizationState {
-    private final String jerseyCustomizations;
+    private String jerseyNameCustomizations;
+    private String jerseyNumberCustomizations;
 
-    public JerseyCustomizationState(String jerseyCustomizations){
-        this.jerseyCustomizations = jerseyCustomizations;
+    public JerseyCustomizationState() {
+        
     }
 
-    public String getCustomizations() {
-        return jerseyCustomizations;
+    public void setJerseyNumberCustomizations(String jerseyNumberCustomizations) {
+        this.jerseyNumberCustomizations = jerseyNumberCustomizations;
+    }
+
+    public String getJerseyNumberCustomizations() {
+        return jerseyNumberCustomizations;
+    }
+
+    public void setJerseyNameCustomizations(String jerseyNameCustomizations) {
+        this.jerseyNameCustomizations = jerseyNameCustomizations;
+    }
+
+    public String getJerseyNameCustomizations() {
+        return jerseyNameCustomizations;
     }
 }

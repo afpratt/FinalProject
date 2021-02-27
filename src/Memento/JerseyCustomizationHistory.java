@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JerseyCustomizationHistory {
-    private List<JerseyCustomizationState> customizationStates = new ArrayList<>();
+    public List<JerseyCustomizationState> customizationStates = new ArrayList<>();
 
     public void push(JerseyCustomizationState customizationState) {
         customizationStates.add(customizationState);
