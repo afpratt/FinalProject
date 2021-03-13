@@ -1,7 +1,7 @@
 import decorator.*;
+import memento.*;
 import state.*;
-import Memento.*;
-import Command.*;
+import command.*;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
@@ -32,21 +32,35 @@ public class OnlineJerseyStore {
 
             JerseyCustomizationState jerseyState = new JerseyCustomizationState();
 
-            String customName = getInput(scanner, state, "Would you like to add a custom name? Yes or No.", false);
-            jerseyState.setJerseyNameCustomizations(customName);
-            if (customName.equalsIgnoreCase("Yes")) {
-                jersey = new NameCustomization(jersey);
+            while (true) {
+            	String customName = getInput(scanner, state, "Would you like to add a custom name? Yes or No.");
+            	jerseyState.setJerseyNameCustomizations(customName);
+            	if (customName.equalsIgnoreCase("Yes")) {
+            		jersey = new NameCustomization(jersey);
+            		break;
+            	}
+            	if (customName.equalsIgnoreCase("no")) {
+            		break;
+            	}
+            	System.out.println("That is not an option.");
             }
 
-            String customNumber = getInput(scanner, state, "Would you like to add a custom number? Yes or No.", false);
-            jerseyState.setJerseyNumberCustomizations(customNumber);
-            if (customNumber.equalsIgnoreCase("yes")) {
-                jersey = new NumberCustomization(jersey);
+            while (true) {
+            	String customNumber = getInput(scanner, state, "Would you like to add a custom number? Yes or No.");
+            	jerseyState.setJerseyNumberCustomizations(customNumber);
+            	if (customNumber.equalsIgnoreCase("yes")) {
+            		jersey = new NumberCustomization(jersey);
+            		break;
+            	}
+            	if (customNumber.equalsIgnoreCase("no")) {
+            		break;
+            	}
+            	System.out.println("That is not an option.");
             }
 
             history.push(jerseyState);
 
-            String done = getInput(scanner, state, "Are you happy with your order? Yes or No.\n" + jersey.getDescription(), false);
+            String done = getInput(scanner, state, "Are you happy with your order? Yes or No.\n" + jersey.getDescription());
             if (done.equalsIgnoreCase("yes")) {
                 break;
             }
@@ -54,9 +68,9 @@ public class OnlineJerseyStore {
 
         String creditCardNumber;
         while (true) {
-            creditCardNumber = getInput(scanner, state, "Please enter your 16 digit credit card number for payment:", true);
+            creditCardNumber = getInput(scanner, state, "Please enter your 16 digit credit card number for payment:");
 
-            if (creditCardNumber.length() == 16) {
+            if (creditCardNumber.replaceAll("[^0-9]", "").length() == 16) {
                 state.enterPaymentInformation();
                 System.out.println("Thank you for entering your payment information.");
                 break;
@@ -87,7 +101,7 @@ public class OnlineJerseyStore {
         String teamName;
         Jersey jersey;
         while (true) {
-            teamName = getInput(scanner, state, "We currently have jerseys for Arsenal, Chelsea, Liverpool, and Manchester City.\nPlease enter the name of the team whose jersey you would like to purchase:", false);
+            teamName = getInput(scanner, state, "We currently have jerseys for Arsenal, Chelsea, Liverpool, and Manchester City.\nPlease enter the name of the team whose jersey you would like to purchase:");
 
             if (teamName.equalsIgnoreCase("arsenal")) {
                 jersey = new ArsenalJersey();
@@ -110,7 +124,7 @@ public class OnlineJerseyStore {
         return jersey;
     }
 
-    private static String getInput(Scanner scanner, JerseyStoreState state, String prompt, Boolean creditCard) {
+    private static String getInput(Scanner scanner, JerseyStoreState state, String prompt) {
         String answer = "";
         while (true) {
             System.out.println(prompt);
@@ -121,9 +135,6 @@ public class OnlineJerseyStore {
             }
             else {
                 break;
-            }
-            if (creditCard) {
-                answer.replaceAll("[^0-9]", "");
             }
         }
         return answer;

@@ -1,4 +1,4 @@
-package Command;
+package command;
 
 public class Checkout {
 	public void submitOrder() {

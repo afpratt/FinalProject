@@ -41,4 +41,10 @@ public class JerseyStoreState {
     public State getHasPaymentInformationState() {
         return hasPaymentInformationState;
     }
+    
+    public String toString() {
+    	StringBuffer result = new StringBuffer();
+    	result.append(state);
+    	return result.toString();
+    }
 }

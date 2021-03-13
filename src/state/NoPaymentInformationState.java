@@ -15,4 +15,8 @@ public class NoPaymentInformationState implements State {
     public void placeOrder() {
         System.out.println("You must enter your payment information to place this order.");
     }
+    
+    public String toString() {
+    	return "No payment information state.";
+    }
 }

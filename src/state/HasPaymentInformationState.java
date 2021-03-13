@@ -15,4 +15,8 @@ public class HasPaymentInformationState implements State {
         System.out.println("Thank you for shopping with us!");
         jerseyStoreState.setState(jerseyStoreState.getSoldState());
     }
+    
+    public String toString() {
+    	return "Has payment information state.";
+    }
 }

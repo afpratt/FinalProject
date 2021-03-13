@@ -1,4 +1,4 @@
-package Memento;
+package memento;
 
 public class JerseyCustomizationState {
     private String jerseyNameCustomizations;

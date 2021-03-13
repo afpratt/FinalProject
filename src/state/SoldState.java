@@ -15,4 +15,8 @@ public class SoldState implements State {
         System.out.println("Your order is being processed and will ship in 1-2 business days.");
         jerseyStoreState.setState(jerseyStoreState.getNoPaymentInformationState());
     }
+    
+    public String toString() {
+    	return "Sold state.";
+    }
 }
